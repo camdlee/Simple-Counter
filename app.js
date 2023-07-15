@@ -19,14 +19,21 @@ btns.forEach((btn)=>{
         const styles = event.currentTarget.classList;
         //if function to assess whether to decrease, reset, or increase the counter
         if(styles.contains('decrease')){
-            count--
-            value.innerHTML = count
+            count--;
         } else if (styles.contains('increase')){
-            count++
-            value.innerHTML = count
+            count++;
         } else {
-            count = 0
-            value.innerHTML = count
+            count = 0;
         }
-    })
+        value.textContent = count
+        if(count > 0){
+            value.style.color = 'green';
+        }
+        if(count < 0){
+            value.style.color = 'red';
+        }
+        if(count === 0){
+            value.style.color = '#222';
+        }
+    });
 })
